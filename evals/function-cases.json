@@ -1,0 +1,30 @@
+{
+  "skill_name": "public-release-reviewing",
+  "cases": [
+    {
+      "id": "function-001",
+      "title": "最小公开包审查",
+      "input": "examples/workflow-skill/samples/input/public-package",
+      "expected_outputs": [
+        "step02-execute/findings.json",
+        "output/public-release-report.md"
+      ],
+      "assertions": [
+        "报告包含判断、阻塞问题、非阻塞问题、验证、剩余风险。",
+        "private_pattern_hits 为空。",
+        "destructive_hits 为空。"
+      ]
+    },
+    {
+      "id": "function-002",
+      "title": "缺失目标目录",
+      "input": "examples/workflow-skill/samples/input/missing-package",
+      "expected_outputs": [],
+      "assertions": [
+        "流程停止。",
+        "错误类型可恢复。",
+        "不创建最终报告。"
+      ]
+    }
+  ]
+}

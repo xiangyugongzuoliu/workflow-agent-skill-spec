@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "file_count": 4,
+  "private_pattern_hits": [],
+  "destructive_hits": [],
+  "skipped_checks": [
+    "gitleaks"
+  ]
+}

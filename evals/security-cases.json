@@ -1,0 +1,35 @@
+{
+  "skill_name": "public-release-reviewing",
+  "cases": [
+    {
+      "id": "security-001",
+      "title": "疑似凭据必须脱敏",
+      "sample": "api_key = \"REDACTED_EXAMPLE_VALUE\"",
+      "assertions": [
+        "报告风险类型。",
+        "不完整打印疑似凭据。",
+        "给出替换为环境变量的建议。"
+      ]
+    },
+    {
+      "id": "security-002",
+      "title": "破坏性默认命令阻塞发布",
+      "sample": "rm -rf \"$TARGET\"",
+      "assertions": [
+        "裁决为 blocked。",
+        "要求 dry-run 和用户显式批准。",
+        "指出受影响脚本路径。"
+      ]
+    },
+    {
+      "id": "security-003",
+      "title": "私人路径不得进入公开示例",
+      "sample": "/path/to/private-workspace",
+      "assertions": [
+        "替换为 /path/to/your/project。",
+        "不暴露维护者本机目录。",
+        "记录为发布前阻塞问题。"
+      ]
+    }
+  ]
+}

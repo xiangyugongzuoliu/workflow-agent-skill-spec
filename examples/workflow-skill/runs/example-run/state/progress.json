@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "created_at": "2026-04-30T00:00:00Z",
+  "updated_at": "2026-04-30T00:05:00Z",
+  "keyword": "public-package-example",
+  "current_step": "step03-verify",
+  "completed_steps": ["step01-prepare", "step02-execute", "step03-verify"],
+  "failed_steps": [],
+  "skipped_steps": [
+    {
+      "step": "gitleaks-scan",
+      "reason": "黄金样例只演示最小文本扫描路径。"
+    }
+  ],
+  "outputs": {
+    "config": "state/config.json",
+    "file_index": "step01-prepare/file-index.txt",
+    "findings": "step02-execute/findings.json",
+    "report": "output/public-release-report.md"
+  },
+  "errors": [],
+  "resume_hint": "已完成。需要复查时读取 output/public-release-report.md。"
+}

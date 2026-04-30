@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xiangyugongzuoliu/workflow-agent-skill-spec/schemas/trigger-eval.schema.json",
+  "title": "Workflow Agent Skill Trigger Eval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["skill_name", "description_under_test", "queries"],
+  "properties": {
+    "skill_name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    },
+    "description_under_test": {
+      "type": "string",
+      "minLength": 40
+    },
+    "queries": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "query", "should_trigger", "reason"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(should-trigger|should-not-trigger)-[0-9]{3}$"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 4
+          },
+          "should_trigger": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 8
+          }
+        }
+      }
+    }
+  }
+}

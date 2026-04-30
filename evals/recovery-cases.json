@@ -1,0 +1,35 @@
+{
+  "skill_name": "public-release-reviewing",
+  "cases": [
+    {
+      "id": "recovery-001",
+      "title": "从 step02 继续",
+      "progress": {
+        "status": "processing",
+        "current_step": "step02-execute",
+        "completed_steps": ["step01-prepare"],
+        "failed_steps": [],
+        "outputs": {
+          "config": "state/config.json",
+          "file_index": "step01-prepare/file-index.txt"
+        },
+        "resume_hint": "继续执行 step02-execute。"
+      },
+      "assertions": [
+        "读取 state/config.json。",
+        "不重复执行 step01-prepare。",
+        "新产物写入同一个 run 目录。"
+      ]
+    },
+    {
+      "id": "recovery-002",
+      "title": "progress.json 损坏",
+      "progress": "invalid-json",
+      "assertions": [
+        "停止并报告 progress_corrupt。",
+        "不猜测破坏性动作。",
+        "提示用户从已有步骤产物重建。"
+      ]
+    }
+  ]
+}

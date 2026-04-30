@@ -1,0 +1,8 @@
+{
+  "mode": "release-review",
+  "max_depth": 4,
+  "scan_private_patterns": true,
+  "scan_destructive_defaults": true,
+  "dry_run": true,
+  "report_format": "markdown"
+}

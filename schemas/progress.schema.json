@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xiangyugongzuoliu/workflow-agent-skill-spec/schemas/progress.schema.json",
+  "title": "Workflow Agent Skill Progress",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "status",
+    "created_at",
+    "updated_at",
+    "keyword",
+    "current_step",
+    "completed_steps",
+    "failed_steps",
+    "outputs",
+    "resume_hint"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["pending", "processing", "completed", "failed"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "keyword": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "current_step": {
+      "type": "string",
+      "pattern": "^step[0-9]{2}-[a-z0-9-]+$"
+    },
+    "completed_steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^step[0-9]{2}-[a-z0-9-]+$"
+      }
+    },
+    "failed_steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^step[0-9]{2}-[a-z0-9-]+$"
+      }
+    },
+    "skipped_steps": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "message", "recoverable"],
+        "additionalProperties": true,
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "recoverable": {
+            "type": "boolean"
+          },
+          "suggested_fix": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "resume_hint": {
+      "type": "string",
+      "minLength": 10
+    }
+  }
+}

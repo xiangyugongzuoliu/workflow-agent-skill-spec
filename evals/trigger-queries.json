@@ -1,0 +1,102 @@
+{
+  "skill_name": "example-task-reviewing",
+  "description_under_test": "当用户要求审查已有任务产物的范围、安全性、完整性和发布准备度时使用。本 Skill 不用于从零创建产物。",
+  "queries": [
+    {
+      "id": "should-trigger-001",
+      "query": "检查这个已有 Skill，告诉我它能不能安全发布。",
+      "should_trigger": true,
+      "reason": "用户要求审查已有 Skill 的发布准备度和安全性。"
+    },
+    {
+      "id": "should-trigger-002",
+      "query": "你能检查这个工作流文件夹，并在我开源前列出阻塞问题吗？",
+      "should_trigger": true,
+      "reason": "用户要求在公开发布前审查已有工作流。"
+    },
+    {
+      "id": "should-trigger-003",
+      "query": "这个 Agent 包感觉很乱。帮我检查范围、输出，以及 README 有没有过度承诺。",
+      "should_trigger": true,
+      "reason": "请求要求审查已有 Agent 产物的质量和范围。"
+    },
+    {
+      "id": "should-trigger-004",
+      "query": "审计这个目录里有没有私人路径和隐藏依赖。",
+      "should_trigger": true,
+      "reason": "请求要求安全和依赖审查。"
+    },
+    {
+      "id": "should-trigger-005",
+      "query": "发布这个模板前，检查一下示例能不能复现。",
+      "should_trigger": true,
+      "reason": "请求要求审查已有模板的发布准备度。"
+    },
+    {
+      "id": "should-trigger-006",
+      "query": "看看这个已有 Agent 工作流，告诉我新用户会在哪些地方失败。",
+      "should_trigger": true,
+      "reason": "用户要求从外部可用性角度审查已有工作流。"
+    },
+    {
+      "id": "should-trigger-007",
+      "query": "给这个 Skill 做最终 QA，我关心触发质量、安全性和恢复能力。",
+      "should_trigger": true,
+      "reason": "用户明确要求按文档审查维度对 Skill 做 QA。"
+    },
+    {
+      "id": "should-trigger-008",
+      "query": "检查这个发布候选版本有没有密钥、破坏性默认行为和缺失测试。",
+      "should_trigger": true,
+      "reason": "请求要求对已有候选版本做安全和发布审查。"
+    },
+    {
+      "id": "should-not-trigger-001",
+      "query": "创建一个全新的博客发布 Skill。",
+      "should_trigger": false,
+      "reason": "本 Skill 审查已有产物，不应从零创建新 Skill。"
+    },
+    {
+      "id": "should-not-trigger-002",
+      "query": "给我的项目写一个营销 README。",
+      "should_trigger": false,
+      "reason": "请求是内容创作，不是产物审查。"
+    },
+    {
+      "id": "should-not-trigger-003",
+      "query": "把这个包发布到 npm。",
+      "should_trigger": false,
+      "reason": "本 Skill 不能发布或上传产物。"
+    },
+    {
+      "id": "should-not-trigger-004",
+      "query": "给这篇文章生成一张图片。",
+      "should_trigger": false,
+      "reason": "请求是图片生成，超出审查范围。"
+    },
+    {
+      "id": "should-not-trigger-005",
+      "query": "用五个要点总结这篇文章。",
+      "should_trigger": false,
+      "reason": "请求是摘要，不是发布准备度审查。"
+    },
+    {
+      "id": "should-not-trigger-006",
+      "query": "删除这个项目下面所有旧的运行目录。",
+      "should_trigger": false,
+      "reason": "请求是破坏性清理，不是审查。"
+    },
+    {
+      "id": "should-not-trigger-007",
+      "query": "帮我把 API key 写到配置文件里。",
+      "should_trigger": false,
+      "reason": "本 Skill 不能处理真实凭据。"
+    },
+    {
+      "id": "should-not-trigger-008",
+      "query": "教我 Agent Skills 是什么。",
+      "should_trigger": false,
+      "reason": "请求是概念解释，不是审查已有产物。"
+    }
+  ]
+}

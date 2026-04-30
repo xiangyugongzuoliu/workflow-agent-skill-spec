@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xiangyugongzuoliu/workflow-agent-skill-spec/schemas/runtime.schema.json",
+  "title": "Workflow Agent Skill Runtime Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "skill"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "skill": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+      },
+      "uniqueItems": true
+    },
+    "envs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "required"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["python", "node", "deno", "bun", "bash", "rust", "go", "other"]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          },
+          "manager": {
+            "type": "string"
+          },
+          "lockfile": {
+            "type": "string"
+          },
+          "install_hint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "binaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "required", "purpose"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "install_hint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "role", "kind", "required"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["ocr", "asr", "vad", "diarization", "vision", "segmentation", "embedding", "rerank", "other"]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "size_mb": {
+            "type": "number",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "cache_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root": {
+          "type": "string",
+          "enum": ["runtime", "project", "user"]
+        },
+        "sync": {
+          "type": "boolean"
+        },
+        "allow_provider_cache": {
+          "type": "boolean"
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "hosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "offline_behavior": {
+          "type": "string",
+          "enum": ["stop", "degrade-with-record", "stop-or-degrade-with-record"]
+        }
+      }
+    }
+  }
+}

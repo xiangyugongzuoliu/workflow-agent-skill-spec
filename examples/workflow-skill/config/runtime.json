@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "skill": "public-release-reviewing",
+  "profiles": ["minimal", "standard"],
+  "envs": [
+    {
+      "id": "shell-main",
+      "kind": "bash",
+      "required": true,
+      "version": ">=3.2",
+      "install_hint": "使用操作系统自带 bash，或参考系统包管理器安装。"
+    }
+  ],
+  "binaries": [
+    {
+      "name": "find",
+      "required": true,
+      "purpose": "列出待审查文件。"
+    },
+    {
+      "name": "grep",
+      "required": true,
+      "purpose": "扫描公开发布风险模式。"
+    },
+    {
+      "name": "gitleaks",
+      "required": false,
+      "purpose": "可选密钥扫描。缺失时记录 skipped_checks。"
+    }
+  ],
+  "models": [],
+  "cache_policy": {
+    "root": "runtime",
+    "sync": false,
+    "allow_provider_cache": false
+  },
+  "network": {
+    "required": false,
+    "hosts": [],
+    "offline_behavior": "stop-or-degrade-with-record"
+  }
+}

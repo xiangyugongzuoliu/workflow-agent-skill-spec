@@ -1,0 +1,7 @@
+{
+  "target": "examples/workflow-skill/samples/input/public-package",
+  "mode": "release-review",
+  "keyword": "public-package-example",
+  "created_at": "2026-04-30T00:00:00Z",
+  "run_dir": "examples/workflow-skill/runs/example-run"
+}

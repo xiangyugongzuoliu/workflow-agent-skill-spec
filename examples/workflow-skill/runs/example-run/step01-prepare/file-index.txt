@@ -1,0 +1,4 @@
+README.md
+LICENSE
+package.json
+scripts/check.sh

@@ -1,0 +1,47 @@
+{
+  "skill_name": "public-release-reviewing",
+  "cases": [
+    {
+      "id": "runtime-001",
+      "title": "必需 binary 缺失",
+      "runtime_error": {
+        "type": "binary_missing",
+        "name": "find",
+        "required": true
+      },
+      "assertions": [
+        "流程停止。",
+        "错误写入 progress.json。",
+        "提示按 docs/setup.md 准备环境。"
+      ]
+    },
+    {
+      "id": "runtime-002",
+      "title": "可选 gitleaks 缺失",
+      "runtime_error": {
+        "type": "binary_missing",
+        "name": "gitleaks",
+        "required": false
+      },
+      "assertions": [
+        "流程可降级。",
+        "skipped_checks 记录 gitleaks。",
+        "报告剩余风险。"
+      ]
+    },
+    {
+      "id": "runtime-003",
+      "title": "模型 checksum 不匹配",
+      "runtime_error": {
+        "type": "runtime_corrupt",
+        "resource": "model",
+        "role": "asr-default"
+      },
+      "assertions": [
+        "不继续使用该模型。",
+        "提示 repair。",
+        "不静默重新下载大型模型。"
+      ]
+    }
+  ]
+}
