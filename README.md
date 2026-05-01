@@ -19,6 +19,8 @@
 
 本仓库由翔宇工作流维护，从内部生产规范中提炼，只保留可复用、可解释、可审计、可分发的部分。它不依赖私有知识库、本机路径、真实账号、客户数据或未公开服务。
 
+配套教程见官网长文：[Claude Code Skill 工作流开发手把手教程：开源规范版](https://xiangyugongzuoliu.com/claude-code-skill-workflow-guide/)。文章负责解释设计思路，本仓库负责提供可复制的规范、模板、示例、Schema、评测和验证脚本。
+
 > 🎯 **不是把提示词存起来，而是把任务设计成会运行的工作流。**
 > ⚡ **Agent 负责判断，脚本负责确定性，状态负责恢复，测试负责发布信心。**
 
@@ -165,8 +167,8 @@ workflow-agent-skill-spec/
   <a href="https://flowus.cn/xiangyugongzuoliu/share/d392dcad-b537-44ee-a3e2-56ff5af02bce">
     <img src="https://img.shields.io/badge/AI编程实操课-系统学习-FF6B35?style=for-the-badge&logo=bookstack&logoColor=white" alt="AI 编程实操课" />
   </a>
-  <a href="https://xiangyugongzuoliu.com">
-    <img src="https://img.shields.io/badge/官网长文-深度拆解-2C3E50?style=for-the-badge&logo=ghost&logoColor=white" alt="官网长文" />
+  <a href="https://xiangyugongzuoliu.com/claude-code-skill-workflow-guide/">
+    <img src="https://img.shields.io/badge/官网教程-开源规范版-2C3E50?style=for-the-badge&logo=ghost&logoColor=white" alt="官网教程" />
   </a>
   <a href="https://www.youtube.com/@xiangyugongzuoliu">
     <img src="https://img.shields.io/badge/YouTube-实战演示-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" />
@@ -177,6 +179,7 @@ workflow-agent-skill-spec/
 </p>
 
 - 🎓 **AI 编程实操课**：https://flowus.cn/xiangyugongzuoliu/share/d392dcad-b537-44ee-a3e2-56ff5af02bce
+- 📘 **配套官网教程**：https://xiangyugongzuoliu.com/claude-code-skill-workflow-guide/
 - 🌐 **翔宇工作流官网**：https://xiangyugongzuoliu.com
 - ▶️ **YouTube「翔宇工作流」**：https://www.youtube.com/@xiangyugongzuoliu
 - ✉️ **公众号「翔宇工作流」**：https://xiangyugongzuoliu.com/wechat/
